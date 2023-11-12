@@ -29,5 +29,9 @@ jobs:
       with:
         name: static-site
         path: build/
+  release-project:
+    name:Realease project
+    runs-on: self-hosted
+    need:build
 
 
