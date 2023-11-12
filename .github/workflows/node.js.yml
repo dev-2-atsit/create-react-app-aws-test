@@ -32,6 +32,14 @@ jobs:
   release-project:
     name:Realease project
     runs-on: self-hosted
-    need:build
+    need:    build
+    steps:
+     - name: Download artifact
+       uses:actions/download-artifact@v3
+       with:
+         name: static-site
+     - name: Test artifact download
+       run: ls -R
+    
 
 
