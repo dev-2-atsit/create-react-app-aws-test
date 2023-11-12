@@ -44,6 +44,7 @@ jobs:
       - name: Run serve command
         run: |
           # Check if port 3000 is in use
+          ls
           netstat -ano | grep 3000
 
           # If port 3000 is in use, kill the process
