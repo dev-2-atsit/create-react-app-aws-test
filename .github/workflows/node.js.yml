@@ -41,9 +41,7 @@ jobs:
           name: static-site
       - name: Test artifact download
         run: ls -R
+      - name: close the port
+        run: fuser -k 3000/tcp
       - name: Run serve command
-        run: |
-          # Check if port 3000 is in use
-          ls
-          fuser -k 3000/tcp
-          serve
+        run: serve
