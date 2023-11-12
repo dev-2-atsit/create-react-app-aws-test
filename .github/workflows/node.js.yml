@@ -41,7 +41,3 @@ jobs:
           name: static-site
       - name: Test artifact download
         run: ls -R
-      - name: close the port
-        run: ls
-      - name: Run serve command
-        run: serve
