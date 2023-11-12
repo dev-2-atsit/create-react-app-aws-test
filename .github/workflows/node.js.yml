@@ -52,4 +52,5 @@ jobs:
           fi
 
           # Start the serve command
+          ls
           serve -s build --listen 3000
