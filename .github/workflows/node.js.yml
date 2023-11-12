@@ -25,21 +25,19 @@ jobs:
       run: npm run build
 
     - name: Upload build
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: static-site
         path: build/
+
   release-project:
-    name:Realease project
+    name: Release project
     runs-on: self-hosted
-    need:    build
+    needs: build
     steps:
-     - name: Download artifact
-       uses:actions/download-artifact@v3
-       with:
-         name: static-site
-     - name: Test artifact download
-       run: ls -R
-    
-
-
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: static-site
+      - name: Test artifact download
+        run: ls -R
