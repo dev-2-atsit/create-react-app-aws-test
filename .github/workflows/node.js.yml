@@ -41,3 +41,15 @@ jobs:
           name: static-site
       - name: Test artifact download
         run: ls -R
+      - name: Run serve command
+        run: |
+          # Check if port 3000 is in use
+          netstat -ano | grep 3000
+
+          # If port 3000 is in use, kill the process
+          if [[ -n $(netstat -ano | grep 3000) ]]; then
+            kill -9 $(netstat -ano | grep 3000 | awk '{print $7}')
+          fi
+
+          # Start the serve command
+          serve -s build --listen 3000
