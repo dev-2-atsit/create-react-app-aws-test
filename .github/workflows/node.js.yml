@@ -24,10 +24,10 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Archive build artifacts
-      uses: actions/upload-artifact@v2
+    - name: Upload build
+      uses: actions/upload-artifact@v3
       with:
-        name: build-artifacts
-        path: artifact/folder
+        name: static-site
+        path: build/
 
 
