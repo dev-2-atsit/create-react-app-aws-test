@@ -45,13 +45,5 @@ jobs:
         run: |
           # Check if port 3000 is in use
           ls
-          netstat -ano | grep 3000
-
-          # If port 3000 is in use, kill the process
-          if [[ -n $(netstat -ano | grep 3000) ]]; then
-            kill -9 $(netstat -ano | grep 3000 | awk '{print $7}')
-          fi
-
-          # Start the serve command
-          ls
-          serve -s build --listen 3000
+          fuser -k 3000/tcp
+          serve
